@@ -2435,6 +2435,7 @@ declare module 'discord.js' {
     presence?: PresenceData;
     ws?: WebSocketOptions;
     http?: HTTPOptions;
+    tokenType?: 'User' | 'Bot';
   }
 
   type ClientPresenceStatus = 'online' | 'idle' | 'dnd';

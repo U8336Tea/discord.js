@@ -32,7 +32,9 @@ class Client extends BaseClient {
    * @param {ClientOptions} [options] Options for the client
    */
   constructor(options = {}) {
-    super(Object.assign({ _tokenType: 'Bot' }, options));
+    if (!options.tokenType) options.tokenType = 'Bot';
+    if (options.tokenType == 'User') options.tokenType = '';
+    super(Object.assign({ _tokenType: options.tokenType }, options));
 
     // Obtain shard details from environment or if present, worker threads
     let data = process.env;
